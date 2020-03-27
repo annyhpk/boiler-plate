@@ -18,9 +18,11 @@ mongoose.connect(config.mongoURI, {
 }).then(() => console.log('MongoDB Connnected...'))
   .catch(err => console.log(err));
 
-app.get("/", (req, res) => res.send('Hello World'));
+app.get('/', (req, res) => res.send('Hello World'));
 
-app.post("/api/users/register", (req, res) => {
+app.get('/api/hello', (req, res) => res.send("안녕하세요!~"));
+
+app.post('/api/users/register', (req, res) => {
   const user = new User(req.body);
 
   user.save((err, doc) => {
@@ -31,7 +33,7 @@ app.post("/api/users/register", (req, res) => {
   });
 });
 
-app.post("/api/users/login", (req, res) => {
+app.post('/api/users/login', (req, res) => {
   User.findOne({ email: req.body.email }, (err, user) => {
     if (err) {
       return res.json({
