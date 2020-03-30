@@ -9,6 +9,7 @@ import {
 import { 
     registerUser 
 } from '../../../_actions/user_action';
+import { withRouter } from 'react-router-dom';
 
 
 const Div = styled.div`
@@ -93,4 +94,4 @@ function RegisterPage(props) {
     )
 }
 
-export default RegisterPage
+export default withRouter(RegisterPage)
