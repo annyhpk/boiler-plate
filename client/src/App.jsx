@@ -1,12 +1,4 @@
-import React, { 
-
-} from 'react';
-import {
-
-} from './styles';
-import { 
-    
-} from '@ant-design/icons';
+import React from 'react';
 import { 
   BrowserRouter as Router,
   Switch,

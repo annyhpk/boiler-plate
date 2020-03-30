@@ -1,6 +1,16 @@
 import React, { useEffect } from 'react';
+import { } from 'antd';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+
+const Div = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+`;
 
 function LandingPage() {
 
@@ -10,12 +20,11 @@ function LandingPage() {
     }, [])
 
     return (
-        <div>
-            <Link to="/login">로그인</Link>
-            &nbsp;
-            <Link to="/register">회원가입</Link>
-            &nbsp;
-        </div>
+        <>
+            <Div>
+                <h2>시작페이지</h2>
+            </Div>
+        </>
     )
 }
 
