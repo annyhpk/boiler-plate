@@ -1,7 +1,6 @@
 import React, {
      useState
 } from 'react';
-import { Link } from 'react-router-dom';
 import { } from 'antd';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
@@ -48,7 +47,7 @@ function LoginPage(props) {
                 if(response.payload.loginSuccess) {
                     props.history.push('/');
                 } else {
-                    alert('Erroe')
+                    alert('Error');
                 }
                 
             });
