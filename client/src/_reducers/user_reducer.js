@@ -1,27 +1,28 @@
+import { createReducer } from '@reduxjs/toolkit';
+
 import {
     LOGIN_USER,
     REGISTER_USER,
     AUTH_USER
 } from '../_actions/types';
 
-export default function (state = {}, action) {
-    switch (action.type) {
-        case LOGIN_USER:
-            return {
-                ...state,
-                loginSuccess: action.payload,
-            };
-        case REGISTER_USER:
-            return {
-                ...state,
-                register: action.payload,
-            };
-        case AUTH_USER:
-            return {
-                ...state,
-                userData: action.payload,
-            };
-        default:
-            return state;
-    }
-}
+export default createReducer({}, {
+    [LOGIN_USER]: (state, action) => {
+        return {
+            ...state,
+            loginSuccess: action.payload,
+        }
+    },   
+    [REGISTER_USER]: (state, action) => {
+        return {
+            ...state,
+            register: action.payload,
+        }
+    },
+    [AUTH_USER]: (state, action) => {
+        return {
+            ...state,
+            userData: action.payload,
+        };
+    }   
+})

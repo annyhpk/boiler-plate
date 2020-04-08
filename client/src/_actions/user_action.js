@@ -1,3 +1,4 @@
+import { createAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import {
     LOGIN_USER,
@@ -5,35 +6,29 @@ import {
     AUTH_USER
 } from './types';
 
-export function loginUser(dataToSubmit) {
-
+export const loginUser = createAction(LOGIN_USER, function prepare(dataToSubmit) {
     const request = axios.post('/api/users/login', dataToSubmit)
         .then( response => response.data );
 
     return {
-        type: LOGIN_USER,
         payload: request
-    };
-}
+    }
+});
 
-export function registerUser(dataToSubmit) {
-
+export const registerUser = createAction(REGISTER_USER, function prepare(dataToSubmit) {
     const request = axios.post('/api/users/register', dataToSubmit)
         .then( response => response.data );
 
     return {
-        type: REGISTER_USER,
         payload: request
-    };
-}
+    }
+});
 
-export function auth() {
-
+export const auth = createAction(AUTH_USER, function prepare() {
     const request = axios.get('/api/users/auth')
         .then( response => response.data );
 
     return {
-        type: AUTH_USER,
         payload: request
-    };
-}
+    }
+});

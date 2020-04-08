@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { hot } from 'react-hot-loader/root';
 import 'antd/dist/antd.less';
-import { applyMiddleware, createStore } from "redux";
+import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import promiseMiddleware from 'redux-promise';
 import ReduxThunk from 'redux-thunk';
@@ -12,20 +12,19 @@ import Reducer from './_reducers';
 import App from './App';
 
 
-
-const createStoreWithMiddleware = applyMiddleware(promiseMiddleware, ReduxThunk)(createStore);
+const store = configureStore({
+    reducer: Reducer,
+    middleware: [promiseMiddleware, ReduxThunk]
+});
 
 const Hot = hot(App);
 
 ReactDOM.render(
     
     <Provider
-        store={createStoreWithMiddleware(Reducer,
-            window.__REDUX_DEVTOOLS_EXTENSION__ &&
-            window.__REDUX_DEVTOOLS_EXTENSION__()
-        )}
+        store={store}
     >
         <Hot />
     </Provider>
     
-    , document.querySelector('#root'));
+    , document.getElementById('root'));

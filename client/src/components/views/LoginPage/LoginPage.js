@@ -1,6 +1,4 @@
-import React, {
-     useState
-} from 'react';
+import React, { useState } from 'react';
 import { } from 'antd';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
@@ -47,7 +45,7 @@ function LoginPage(props) {
                 if(response.payload.loginSuccess) {
                     props.history.push('/');
                 } else {
-                    alert('Error');
+                    alert('로그인 실패!');
                 }
                 
             });
