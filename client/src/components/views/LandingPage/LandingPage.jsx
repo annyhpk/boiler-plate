@@ -1,16 +1,13 @@
 import React, { useEffect } from 'react';
-import { } from 'antd';
+import { Layout } from 'antd';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
+import Navbar from '../NavBar/NavBar';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
-const Div = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-`;
+const { Content } = Layout;
 
 function LandingPage(props) {
 
@@ -19,27 +16,31 @@ function LandingPage(props) {
         .then(res => { console.log(res.data) });
     }, [])
 
-    const onClickHandler = () => {
-        axios.get('/api/users/logout')
-            .then(response => {
-                if(response.data.success) {
-                    props.history.push('/login');
-                } else {
-                    alert('Failed to logout');
-                }
-            });
-    };
-
     return (
-        <>
-            <Div>
-                <h2>시작페이지</h2>
-
-                <button onClick={onClickHandler}>
-                    logout
-                </button>
-            </Div>
-        </>
+        <Layout>
+            <Navbar />
+            <Layout className="site-layout" style={{ marginLeft: 200 }}>
+                <Header />
+                <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
+                    <div className="site-layout-background" style={{ padding: 24, textAlign: 'center' }}>
+                        <h2>Let's Coding</h2>
+                        <br />
+                        Just Do...
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        ...
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        ...
+                    </div>
+                </Content>
+                <Footer />
+            </Layout>
+        </Layout>
     )
 }
 

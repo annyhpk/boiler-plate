@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { Layout } from 'antd';
+const M_Footer = Layout.Footer;
 
 function Footer() {
     return (
-        <div>
-            Footer
-        </div>
+        <M_Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</M_Footer>
     )
 }
 
