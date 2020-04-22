@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 import { Layout } from 'antd';
-import styled from 'styled-components';
-import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../NavBar/NavBar';
 import Header from '../Header/Header';
@@ -9,7 +7,7 @@ import Footer from '../Footer/Footer';
 
 const { Content } = Layout;
 
-function LandingPage(props) {
+function LandingPage() {
 
     useEffect(() => {
         axios.get('/api/hello')
@@ -44,4 +42,4 @@ function LandingPage(props) {
     )
 }
 
-export default withRouter(LandingPage)
+export default LandingPage;

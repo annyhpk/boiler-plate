@@ -1,11 +1,40 @@
 import React from 'react';
-import { Layout } from 'antd';
-const M_Header = Layout.Header;
+import axios from 'axios';
+import { Layout, Button } from 'antd';
+import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 
-function Header() {
+const StyledHeader = styled(Layout.Header)`
+    display: flex;
+    justify-content: flex-end;
+    padding: 0;
+`
+
+const StyledButton = styled(Button)`
+    margin-top: 1.2em;
+    margin-right: 1em;
+` 
+    
+function Header(props) {
+
+    const onClickHandler = () => {
+        axios.get('/api/users/logout')
+            .then(response => {
+                if(response.data.success) {
+                    props.history.push('/login');
+                } else {
+                    alert('Failed to logout');
+                }
+            });
+    };
+
     return (
-        <M_Header className="site-layout-background" style={{ padding: 0 }} />
+        <StyledHeader className="site-layout-background">
+            <StyledButton danger onClick={onClickHandler}>
+                logout
+            </StyledButton>
+        </StyledHeader>
     )
-}
+};
 
-export default Header;
+export default withRouter(Header);

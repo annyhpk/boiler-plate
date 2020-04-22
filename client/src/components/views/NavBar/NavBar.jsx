@@ -6,23 +6,10 @@ import {
   UploadOutlined,
   VideoCameraOutlined,
 } from '@ant-design/icons';
-import axios from 'axios';
 
 const { Sider } = Layout;
 
 function NavBar() {
-
-    const onClickHandler = () => {
-        axios.get('/api/users/logout')
-            .then(response => {
-                if(response.data.success) {
-                    props.history.push('/login');
-                } else {
-                    alert('Failed to logout');
-                }
-            });
-    };
-
     return (
         <Sider
         style={{
@@ -44,10 +31,10 @@ function NavBar() {
             }}
             >- Logo -</h2>
         </div>
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={['2']}>
           <Menu.Item key="1">
             <UserOutlined />
-            <span className="nav-text" onClick={onClickHandler}>Logout</span>
+            <span className="nav-text">nav 1</span>
           </Menu.Item>
           <Menu.Item key="2">
             <VideoCameraOutlined />
