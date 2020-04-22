@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { } from 'antd';
+import { Form, Button, Input } from 'antd';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../../_actions/user_action';
@@ -13,7 +13,7 @@ const Div = styled.div`
     height: 100vh;
 `;
 
-const Form = styled.form`
+const StyledForm = styled(Form)`
     display: flex;
     flex-direction: column;
 `;
@@ -54,17 +54,17 @@ function LoginPage(props) {
     return (
         <>
           <Div>
-
-            <Form onSubmit={onSubmitHandler}>
+            <StyledForm onSubmit={onSubmitHandler}>
+                <h2>로그인</h2>
                 <label>Email</label>
-                <input type="email" value={Email} onChange={onEmailHandler} />
+                <Input type="email" value={Email} onChange={onEmailHandler} />
                 <label>Password</label>
-                <input type="password" value={Password} onChange={onPasswordHandler} />
+                <Input type="password" value={Password} onChange={onPasswordHandler} />
                 <br />
-                <button>
+                <Button>
                     Login
-                </button>
-            </Form>
+                </Button>
+            </StyledForm>
           </Div>  
         </>
     )
