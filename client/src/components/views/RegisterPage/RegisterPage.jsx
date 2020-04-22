@@ -1,7 +1,7 @@
 import React, {
     useState
 } from 'react';
-import { Form, Button, Input } from 'antd';
+import { Form, Button, Input, Layout } from 'antd';
 import styled from 'styled-components';
 import { 
     useDispatch 
@@ -10,6 +10,7 @@ import {
     registerUser 
 } from '../../../_actions/user_action';
 import { withRouter } from 'react-router-dom';
+import Navbar from '../NavBar/NavBar';
 
 
 const Div = styled.div`
@@ -73,7 +74,8 @@ function RegisterPage(props) {
     };
 
     return (
-        <>
+        <Layout>
+            <Navbar />
             <Div>
                 <StyledForm onSubmit={onRegisterHandler}>
                     <h2>회원 가입</h2>
@@ -91,7 +93,7 @@ function RegisterPage(props) {
                     </Button>
                 </StyledForm>
             </Div>
-        </>
+        </Layout>
     )
 }
 

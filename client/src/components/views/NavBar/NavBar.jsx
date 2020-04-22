@@ -29,7 +29,7 @@ function NavBar() {
             style={{
                 color: 'white'
             }}
-            >- Logo -</h2>
+            ><a href='/'>- Logo -</a></h2>
         </div>
         <Menu theme="dark" mode="inline" defaultSelectedKeys={['2']}>
           <Menu.Item key="1">

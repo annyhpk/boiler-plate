@@ -1,43 +1,25 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Layout } from 'antd';
-import axios from 'axios';
+import styled from 'styled-components';
 import Navbar from '../NavBar/NavBar';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import Content from '../Contents/MainContent';
 
-const { Content } = Layout;
+const SiteLayout = styled(Layout)`
+    margin-left: 200px;
+`
 
 function LandingPage() {
-
-    useEffect(() => {
-        axios.get('/api/hello')
-        .then(res => { console.log(res.data) });
-    }, [])
 
     return (
         <Layout>
             <Navbar />
-            <Layout className="site-layout" style={{ marginLeft: 200 }}>
+            <SiteLayout>
                 <Header />
-                <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
-                    <div className="site-layout-background" style={{ padding: 24, textAlign: 'center' }}>
-                        <h2>Let's Coding</h2>
-                        <br />
-                        Just Do...
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        ...
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        ...
-                    </div>
-                </Content>
+                    <Content />
                 <Footer />
-            </Layout>
+            </SiteLayout>
         </Layout>
     )
 }

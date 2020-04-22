@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Form, Button, Input } from 'antd';
+import { Form, Button, Input, Layout } from 'antd';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../../_actions/user_action';
 import { withRouter } from 'react-router-dom';
+import Navbar from '../NavBar/NavBar';
 
 const Div = styled.div`
     display: flex;
@@ -52,21 +53,22 @@ function LoginPage(props) {
     };
 
     return (
-        <>
-          <Div>
-            <StyledForm onSubmit={onSubmitHandler}>
-                <h2>로그인</h2>
-                <label>Email</label>
-                <Input type="email" value={Email} onChange={onEmailHandler} />
-                <label>Password</label>
-                <Input type="password" value={Password} onChange={onPasswordHandler} />
-                <br />
-                <Button>
-                    Login
-                </Button>
-            </StyledForm>
-          </Div>  
-        </>
+        <Layout>
+            <Navbar />
+            <Div>
+                <StyledForm onSubmit={onSubmitHandler}>
+                    <h2>로그인</h2>
+                    <label>Email</label>
+                    <Input type="email" value={Email} onChange={onEmailHandler} />
+                    <label>Password</label>
+                    <Input type="password" value={Password} onChange={onPasswordHandler} />
+                    <br />
+                    <Button>
+                        Login
+                    </Button>
+                </StyledForm>
+            </Div>  
+        </Layout>
     )
 }
 
