@@ -1,7 +1,7 @@
 import React, {
     useState
 } from 'react';
-import { Form, Button, Input, Layout } from 'antd';
+import { Button, Input, Layout } from 'antd';
 import styled from 'styled-components';
 import { 
     useDispatch 
@@ -21,7 +21,7 @@ const Div = styled.div`
     height: 100vh;
 `;
 
-const StyledForm = styled(Form)`
+const Form = styled.form`
     display: flex;
     flex-direction: column;
 `;
@@ -77,21 +77,21 @@ function RegisterPage(props) {
         <Layout>
             <Navbar />
             <Div>
-                <StyledForm onSubmit={onRegisterHandler}>
-                    <h2>회원 가입</h2>
+                <Form onSubmit={onRegisterHandler}>
+                    <h2>회원가입</h2>
                     <label>Email</label>
                     <Input type="email" value={Email} onChange={onEmailHandler} />
                     <label>Name</label>
                     <Input type="text" value={Name} onChange={onNameHandler} />
                     <label>Password</label>
-                    <Input type="password" value={Password} onChange={onPasswordHandler} />
+                    <Input.Password value={Password} onChange={onPasswordHandler} />
                     <label>Confirm Password</label>
-                    <Input type="password" value={ConfirmPassword} onChange={onConfirmPasswordHandler} />
+                    <Input.Password value={ConfirmPassword} onChange={onConfirmPasswordHandler} />
                     <br />
-                    <Button>
+                    <Button type="primary" htmlType="submit">
                         register
                     </Button>
-                </StyledForm>
+                </Form>
             </Div>
         </Layout>
     )

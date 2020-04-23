@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button, Input, Layout } from 'antd';
+import { Button, Input, Layout } from 'antd';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../../_actions/user_action';
@@ -14,7 +14,7 @@ const Div = styled.div`
     height: 100vh;
 `;
 
-const StyledForm = styled(Form)`
+const Form = styled.form`
     display: flex;
     flex-direction: column;
 `;
@@ -56,17 +56,17 @@ function LoginPage(props) {
         <Layout>
             <Navbar />
             <Div>
-                <StyledForm onSubmit={onSubmitHandler}>
+                <Form onSubmit={onSubmitHandler}>
                     <h2>로그인</h2>
                     <label>Email</label>
                     <Input type="email" value={Email} onChange={onEmailHandler} />
                     <label>Password</label>
-                    <Input type="password" value={Password} onChange={onPasswordHandler} />
+                    <Input.Password value={Password} onChange={onPasswordHandler} />
                     <br />
-                    <Button>
+                    <Button type="primary" htmlType="submit">
                         Login
                     </Button>
-                </StyledForm>
+                </Form>
             </Div>  
         </Layout>
     )
