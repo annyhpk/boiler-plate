@@ -19,7 +19,7 @@ const StyledButton = styled(Button)`
 function Header(props) {
   const user = useSelector(state => state.user);
 
-  const onClickLogout = () => {
+  const onClickHandler = () => {
     axios.get("/api/users/logout").then((response) => {
       if (response.data.success) {
         props.history.push("/login");
@@ -29,30 +29,22 @@ function Header(props) {
     });
   };
 
-  const onClickLogin = () => {
-    props.history.push("/login");
-  }
-
-  const onClickRegister = () => {
-    props.history.push("/register");
-  }
-
   if (user.userData && !user.userData.isAuth) {
     return (
       <StyledHeader className="site-layout-background">
-        <StyledButton danger onClick={onClickLogout}>
-          Logout
+        <StyledButton type="primary" href='/register'>
+          Sign Up
+        </StyledButton>
+        <StyledButton type="primary" href='/login'>
+          Sign In
         </StyledButton>
       </StyledHeader>
     );
   } else {
     return (
       <StyledHeader className="site-layout-background">
-        <StyledButton type="primary" onClick={onClickRegister}>
-          Signup
-        </StyledButton>
-        <StyledButton type="primary" onClick={onClickLogin}>
-          Login
+        <StyledButton danger onClick={onClickHandler}>
+          Logout
         </StyledButton>
       </StyledHeader>
     );
