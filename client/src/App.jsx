@@ -9,13 +9,11 @@ import Registerpage from "./components/views/RegisterPage/RegisterPage";
 
 import Navbar from "./components/views/NavBar/NavBar";
 import Footer from "./components/views/Footer/Footer";
-import Header from "./components/views/Header/Header";
 
 function App() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Navbar />
-      <Header />
         <div style={{ minHeight: 'calc(90vh - 70px)' }}>
           <Switch>
             <Route exact path="/" component={Auth(LandingPage, null)} />

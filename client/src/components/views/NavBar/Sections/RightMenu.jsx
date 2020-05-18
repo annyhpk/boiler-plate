@@ -1,23 +1,22 @@
 import React from "react";
 import axios from "axios";
-import { Layout, Button } from "antd";
+import { Button } from "antd";
 import styled from "styled-components";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-
-const StyledHeader = styled(Layout.Header)`
-  display: flex;
-  justify-content: flex-end;
-  padding: 0;
-`;
 
 const StyledButton = styled(Button)`
   margin-top: 1.2em;
   margin-right: 1em;
 `;
 
-function Header(props) {
-  const user = useSelector(state => state.user);
+const StyledLink = styled(Link)`
+  margin-left: 57rem;
+  margin-right: 1em;
+`;
+
+function RightMenu(props) {
+  const user = useSelector((state) => state.user);
 
   const onClickHandler = () => {
     axios.get("/api/users/logout").then((response) => {
@@ -31,24 +30,25 @@ function Header(props) {
 
   if (user.userData && !user.userData.isAuth) {
     return (
-      <StyledHeader className="site-layout-background">
-        <StyledButton type="primary" href='/register'>
+      <>
+        <StyledLink to="/register">
           Sign Up
-        </StyledButton>
-        <StyledButton type="primary" href='/login'>
+        </StyledLink>
+        <Link to="/login">
           Sign In
-        </StyledButton>
-      </StyledHeader>
+        </Link>
+      </>
     );
   } else {
     return (
-      <StyledHeader className="site-layout-background">
+      <>
+        <StyledLink to="/video/upload">Upload</StyledLink>
         <StyledButton danger onClick={onClickHandler}>
           Logout
         </StyledButton>
-      </StyledHeader>
+      </>
     );
   }
 }
 
-export default withRouter(Header);
+export default withRouter(RightMenu);
