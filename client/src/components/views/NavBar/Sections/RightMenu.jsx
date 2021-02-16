@@ -6,13 +6,26 @@ import { withRouter, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const StyledButton = styled(Button)`
-  margin-top: 1.2em;
+  position: absolute;
+  right: 10px;
+  top: 8px;
   margin-right: 1em;
 `;
 
 const StyledLink = styled(Link)`
-  margin-left: 57rem;
-  margin-right: 1em;
+  position: absolute;
+  right: 105px;
+  top: 8px;
+  border: 1px solid #1890FF;
+  border-radius: 2px;
+  padding: 0px 15px;
+  height: 32px;
+  line-height: 30px;
+  margin-right: 0.5em;
+`;
+
+const StyledLink2 = styled(StyledLink)`
+  right: 20px;
 `;
 
 function RightMenu(props) {
@@ -34,9 +47,9 @@ function RightMenu(props) {
         <StyledLink to="/register">
           Sign Up
         </StyledLink>
-        <Link to="/login">
+        <StyledLink2 to="/login">
           Sign In
-        </Link>
+        </StyledLink2>
       </>
     );
   } else {
