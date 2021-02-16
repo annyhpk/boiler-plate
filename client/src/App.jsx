@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
+import { hot } from "react-hot-loader";
 
 import Auth from "./hoc/auth";
 //page for this page
@@ -26,4 +27,4 @@ function App() {
   );
 }
 
-export default App;
+export default hot(module)(App);

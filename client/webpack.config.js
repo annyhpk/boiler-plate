@@ -52,6 +52,12 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(js|jsx|tsx|ts)?$/,
+        include: /node_modules/,
+        use: ['react-hot-loader/webpack'],
+    },
+    
     ],
   },
 
