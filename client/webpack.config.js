@@ -22,6 +22,7 @@ module.exports = {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
+        include: path.resolve(__dirname, 'src'),
         options: {
           presets: [
             [
@@ -31,9 +32,9 @@ module.exports = {
                   browsers: ['last 2 versions', 'ie >= 11'],
                 },
                 debug: true,
+                modules: false,
                 useBuiltIns: 'usage',
                 corejs: 3,
-                shippedProposals: true,
               },
             ],
             '@babel/preset-react',
