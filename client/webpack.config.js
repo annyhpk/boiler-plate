@@ -23,7 +23,7 @@ module.exports = {
                 presets: [
                    ['@babel/preset-env', {
                     targets: {
-                        browsers: ['> 5% in KR'],
+                        browsers: ['last 2 versions', 'ie >= 11'],
                     },
                     debug: true,
                    }],
