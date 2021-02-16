@@ -5,8 +5,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   name: 'Boiler-Plate',
   mode: 'development',
-  devtool: 'cheap-eval-source-map',
+  devtool: 'eval-cheap-source-map',
+
   resolve: {
+    modules: ['node_modules'],
     extensions: ['.js', '.jsx'],
   },
 
