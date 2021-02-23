@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var User_1 = require("../models/User");
-var auth = function (req, res, next) {
-    var token = req.cookies.x_auth;
-    User_1.User.findByToken(token, function (err, user) {
+const User_1 = require("../models/User");
+let auth = (req, res, next) => {
+    let token = req.cookies.x_auth;
+    User_1.User.findByToken(token, (err, user) => {
         if (err)
             throw err;
         if (!user)
@@ -13,5 +13,5 @@ var auth = function (req, res, next) {
         next();
     });
 };
-module.exports = { auth: auth };
+module.exports = { auth };
 //# sourceMappingURL=auth.js.map
