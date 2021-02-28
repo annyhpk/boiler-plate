@@ -42,10 +42,7 @@ module.exports = {
           plugins: [
             '@babel/plugin-proposal-class-properties',
             'react-hot-loader/babel',
-            [
-              'import',
-              { libraryName: 'antd', libraryDirectory: 'es', style: 'true' },
-            ],
+            ['import', { libraryName: 'antd', libraryDirectory: 'es', style: 'true' }],
           ],
         },
       },
@@ -57,8 +54,7 @@ module.exports = {
         test: /\.(js|jsx|tsx|ts)?$/,
         include: /node_modules/,
         use: ['react-hot-loader/webpack'],
-    },
-    
+      },
     ],
   },
 
@@ -68,7 +64,7 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
   ],
-  
+
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'app.js',
