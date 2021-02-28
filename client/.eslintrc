@@ -1,4 +1,14 @@
 {
   "extends": ["plugin:prettier/recommended"],
-  "ignorePatterns": ["dist/", "node_modules/"]
+  "ignorePatterns": ["dist/", "node_modules/"],
+  "parser": "babel-eslint",
+  "rules": {
+    "prettier/prettier": 
+    [
+      "error", 
+      { 
+        "endOfLine": "auto" 
+      }
+    ]   
+  }
 }
