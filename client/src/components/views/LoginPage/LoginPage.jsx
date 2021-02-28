@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { Button, Input, Layout } from "antd";
-import styled from "styled-components";
-import { useDispatch } from "react-redux";
-import { loginUser } from "../../../_actions/user_action";
-import { withRouter } from "react-router-dom";
+import React, { useState } from 'react';
+import { Button, Input, Layout } from 'antd';
+import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../../../_actions/user_action';
+import { withRouter } from 'react-router-dom';
 
 const Div = styled.div`
   display: flex;
@@ -22,8 +22,8 @@ const Form = styled.form`
 function LoginPage(props) {
   const dispatch = useDispatch();
 
-  const [Email, setEmail] = useState("");
-  const [Password, setPassword] = useState("");
+  const [Email, setEmail] = useState('');
+  const [Password, setPassword] = useState('');
 
   const onEmailHandler = (e) => {
     setEmail(e.target.value);
@@ -43,9 +43,9 @@ function LoginPage(props) {
 
     dispatch(loginUser(body)).then((response) => {
       if (response.payload.loginSuccess) {
-        props.history.push("/");
+        props.history.push('/');
       } else {
-        alert("로그인 실패!");
+        alert('로그인 실패!');
       }
     });
   };

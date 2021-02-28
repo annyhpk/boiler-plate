@@ -1,9 +1,9 @@
-import React from "react";
-import axios from "axios";
-import { Button } from "antd";
-import styled from "styled-components";
-import { withRouter, Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import React from 'react';
+import axios from 'axios';
+import { Button } from 'antd';
+import styled from 'styled-components';
+import { withRouter, Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const StyledButton = styled(Button)`
   position: absolute;
@@ -16,7 +16,7 @@ const StyledLink = styled(Link)`
   position: absolute;
   right: 105px;
   top: 8px;
-  border: 1px solid #1890FF;
+  border: 1px solid #1890ff;
   border-radius: 2px;
   padding: 0px 15px;
   height: 32px;
@@ -32,11 +32,11 @@ function RightMenu(props) {
   const user = useSelector((state) => state.user);
 
   const onClickHandler = () => {
-    axios.get("/api/users/logout").then((response) => {
+    axios.get('/api/users/logout').then((response) => {
       if (response.data.success) {
-        props.history.push("/login");
+        props.history.push('/login');
       } else {
-        alert("Failed to logout");
+        alert('Failed to logout');
       }
     });
   };
@@ -44,12 +44,8 @@ function RightMenu(props) {
   if (user.userData && !user.userData.isAuth) {
     return (
       <>
-        <StyledLink to="/register">
-          Sign Up
-        </StyledLink>
-        <StyledLink2 to="/login">
-          Sign In
-        </StyledLink2>
+        <StyledLink to="/register">Sign Up</StyledLink>
+        <StyledLink2 to="/login">Sign In</StyledLink2>
       </>
     );
   } else {

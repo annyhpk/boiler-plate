@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { Button, Input, Layout } from "antd";
-import styled from "styled-components";
-import { useDispatch } from "react-redux";
-import { registerUser } from "../../../_actions/user_action";
-import { withRouter } from "react-router-dom";
+import React, { useState } from 'react';
+import { Button, Input, Layout } from 'antd';
+import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { registerUser } from '../../../_actions/user_action';
+import { withRouter } from 'react-router-dom';
 
 const Div = styled.div`
   display: flex;
@@ -22,10 +22,10 @@ const Form = styled.form`
 function RegisterPage(props) {
   const dispatch = useDispatch();
 
-  const [Name, setName] = useState("");
-  const [Email, setEmail] = useState("");
-  const [Password, setPassword] = useState("");
-  const [ConfirmPassword, setConfirmPassword] = useState("");
+  const [Name, setName] = useState('');
+  const [Email, setEmail] = useState('');
+  const [Password, setPassword] = useState('');
+  const [ConfirmPassword, setConfirmPassword] = useState('');
 
   const onEmailHandler = (e) => {
     setEmail(e.target.value);
@@ -55,13 +55,13 @@ function RegisterPage(props) {
 
       dispatch(registerUser(body)).then((response) => {
         if (response.payload.success) {
-          props.history.push("/login");
+          props.history.push('/login');
         } else {
-          alert("Failed to Sign up");
+          alert('Failed to Sign up');
         }
       });
     } else {
-      return alert("비밀번호가 같지 않습니다.");
+      return alert('비밀번호가 같지 않습니다.');
     }
   };
 
@@ -77,10 +77,7 @@ function RegisterPage(props) {
           <label>Password</label>
           <Input.Password value={Password} onChange={onPasswordHandler} />
           <label>Confirm Password</label>
-          <Input.Password
-            value={ConfirmPassword}
-            onChange={onConfirmPasswordHandler}
-          />
+          <Input.Password value={ConfirmPassword} onChange={onConfirmPasswordHandler} />
           <br />
           <Button type="primary" htmlType="submit">
             register
